@@ -13,62 +13,93 @@
   <main class="container">
     
     <nav class="nav" aria-label="Navegação principal">
-      <a href="index.html" >Cadastro</a>
-      <a href="consultas.html" >Gestão de consultas</a>
-      <a href="horarios.html" >Gestão de horários</a>
+      <a href="index.html">Login</a>
       <a href="solicitacao.html" aria-current="page">Solicitação de consulta</a>
-      <a href="admin.html" >Administração de usuários</a>
     </nav>
-    
 
-<section class="card">
-  <header class="card__header">
-    <h1>Solicitar consulta</h1>
-    <p>Escolha o tipo, profissional e horário disponível.</p>
-  </header>
-  <div class="card__body">
-    <form class="grid" action="#" method="post" novalidate>
-      <div class="field">
-        <label for="tipo">Tipo de consulta</label>
-        <select id="tipo" name="tipo" required>
-          <option value="" disabled selected>Selecione...</option>
-          <option value="telemedicina">Telemedicina</option>
-          <option value="presencial">Presencial</option>
-          <option value="domiciliar">Domiciliar</option>
-        </select>
-      </div>
+    <section class="card">
+      <header class="card__header">
+        <h1>Solicitar consulta</h1>
+        <p>Escolha o tipo, profissional e horário disponível.</p>
+      </header>
+      <div class="card__body">
+        <form class="grid" action="#" method="post" novalidate>
+          
+          <div class="field">
+            <label for="tipo">Tipo de consulta</label>
+            <select id="tipo" name="tipo" required>
+              <option value="" disabled selected>Selecione...</option>
+              <option value="TELEMEDICINA">Telemedicina</option>
+              <option value="PRESENCIAL">Presencial</option>
+              <option value="DOMICILIAR">Domiciliar</option>
+            </select>
+          </div>
 
-      <div class="field">
-        <label for="profissional">Profissional</label>
-        <select id="profissional" name="profissional" required>
-          <option value="" disabled selected>Selecione...</option>
-        </select>
-        <small class="help">O paciente tem acesso à lista de profissionais à sua escolha.</small>
-      </div>
+          <div class="field">
+            <label for="profissional">Profissional</label>
+            <select id="profissional" name="profissional" required>
+              <option value="" disabled selected>Carregando profissionais...</option>
+            </select>
+            <small class="help">Selecione o profissional desejado.</small>
+          </div>
 
-      <div class="field">
-        <label for="data">Data desejada</label>
-        <input id="data" name="data" type="date" required />
-      </div>
+          <div class="field">
+            <label for="data">Data desejada</label>
+            <input id="data" name="data" type="date" required />
+          </div>
 
-      <div class="field">
-        <label for="hora">Horário</label>
-        <input id="hora" name="hora" type="time" min="07:00" max="17:00" step="3600" required />
-        <small class="help">A seleção respeita a disponibilidade do profissional (blocos de 1h).</small>
-      </div>
+          <div class="field">
+            <label for="hora">Horário de início</label>
+            <input id="hora" name="hora" type="time" min="07:00" max="17:00" step="3600" required />
+            <small class="help">Blocos de 1 hora (07:00 às 17:00).</small>
+          </div>
 
-      <div class="actions" style="grid-column:1/-1;">
-        <button class="button" type="submit">Enviar solicitação</button>
-        <a class="button secondary" href="#">Cancelar solicitação</a>
-      </div>
+          <!-- Campos de endereço (apenas para consulta domiciliar) -->
+          <div id="campos-endereco" style="display: none; grid-column: 1 / -1;">
+            <h3 style="margin-bottom: 1rem;">Endereço da consulta domiciliar</h3>
+            <div class="grid">
+              <div class="field">
+                <label for="rua">Rua</label>
+                <input id="rua" name="rua" type="text" maxlength="80" />
+              </div>
 
-      <div class="field" style="grid-column:1/-1;">
-        
+              <div class="field">
+                <label for="numero">Número</label>
+                <input id="numero" name="numero" type="text" maxlength="10" />
+              </div>
+
+              <div class="field">
+                <label for="bairro">Bairro</label>
+                <input id="bairro" name="bairro" type="text" maxlength="80" />
+              </div>
+
+              <div class="field">
+                <label for="cidade">Cidade</label>
+                <input id="cidade" name="cidade" type="text" maxlength="20" />
+              </div>
+
+              <div class="field">
+                <label for="estado">Estado</label>
+                <input id="estado" name="estado" type="text" maxlength="20" placeholder="Ex: SP" />
+              </div>
+            </div>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="justificativa">Justificativa (opcional)</label>
+            <textarea id="justificativa" name="justificativa" rows="3" maxlength="300" placeholder="Descreva o motivo da consulta..."></textarea>
+          </div>
+
+          <div class="actions" style="grid-column:1/-1;">
+            <button class="button" type="submit">Enviar solicitação</button>
+            <button class="button secondary" type="button" onclick="limparFormulario()">Cancelar</button>
+          </div>
+
+          <div id="erro-msg" style="grid-column: 1 / -1;"></div>
+        </form>
       </div>
-    </form>
-  </div>
-</section>
+    </section>
   </main>
+  <script src="assets/js/solicitacao.js"></script>
 </body>
 </html>
-

@@ -43,10 +43,10 @@ function redirecionarPorTipo(tipo) {
       window.location.href = 'admin.html';
       break;
     case 'PROFISSIONAL':
-      window.location.href = 'medico.html';
+      window.location.href = 'consultas.html';
       break;
     case 'PACIENTE':
-      window.location.href = 'consultas.html';
+      window.location.href = 'solicitacao.html';
       break;
     default:
       window.location.href = 'dashboard.html';
