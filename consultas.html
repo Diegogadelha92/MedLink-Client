@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gestão de consultas (Profissionais)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/reset.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html" >Cadastro</a>
+      <a href="consultas.html" aria-current="page">Gestão de consultas</a>
+      <a href="horarios.html" >Gestão de horários</a>
+      <a href="solicitacao.html" >Solicitação de consulta</a>
+      <a href="admin.html" >Administração de usuários</a>
+    </nav>
+    
+
+<section class="card">
+  <header class="card__header">
+    <h1>Gestão de consultas</h1>
+    <p>Cada profissional acessa seus próprios agendamentos e solicitações.</p>
+  </header>
+  <div class="card__body">
+    <div class="note" style="margin-bottom:1rem;">
+     
+    </div>
+
+    <h2 class="badge">Solicitações pendentes</h2>
+    <div class="table" style="margin-top:.5rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>João Lima</td>
+            <td>Telemedicina</td>
+            <td>12/11/2025</td>
+            <td>09:00</td>
+            <td class="row">
+              <a href="#" class="button">Aceitar</a>
+              <a href="#negar-1" class="button danger">Negar</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Ana Paula</td>
+            <td>Presencial</td>
+            <td>13/11/2025</td>
+            <td>14:00</td>
+            <td class="row">
+              <a href="#" class="button">Aceitar</a>
+              <a href="#negar-2" class="button danger">Negar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="space"></div>
+    <h3>Negar solicitação</h3>
+    <form class="grid" action="#" method="post" novalidate>
+      <div class="field" style="grid-column:1/-1;">
+        <label for="justificativa-negacao">Justificativa (até 300 caracteres)</label>
+        <textarea id="justificativa-negacao" name="justificativa" maxlength="300" placeholder="Descreva o motivo da negação..." required></textarea>
+        <small class="help">Obrigatório em caso de negação.</small>
+      </div>
+      <div class="actions" style="grid-column:1/-1;">
+        <button class="button danger" type="submit">Enviar negação</button>
+      </div>
+    </form>
+
+    <div class="space"></div>
+    <h2 class="badge">Agendamentos futuros</h2>
+    <div class="table" style="margin-top:.5rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Marcos Silva</td>
+            <td>14/11/2025</td>
+            <td>10:00</td>
+            <td>Domiciliar</td>
+            <td class="row">
+              <a href="#cancelar" class="button danger">Cancelar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="space"></div>
+    <h3>Cancelar sessão marcada</h3>
+    <form class="grid" action="#" method="post" novalidate>
+      <div class="field" style="grid-column:1/-1;">
+        <label for="justificativa-cancel">Justificativa (até 300 caracteres)</label>
+        <textarea id="justificativa-cancel" name="justificativa_cancelamento" maxlength="300" placeholder="Informe o motivo do cancelamento..." required></textarea>
+      </div>
+      <div class="actions" style="grid-column:1/-1;">
+        <button class="button danger" type="submit">Confirmar cancelamento</button>
+      </div>
+    </form>
+  </div>
+</section>
+  </main>
+</body>
+</html>
+

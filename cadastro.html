@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Cadastro de Usuário</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/reset.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html">Login</a>
+      <a href="cadastro.html" aria-current="page">Cadastro</a>
+    </nav>
+    
+    <section class="card">
+      <header class="card__header">
+        <h1>Cadastro de Usuário</h1>
+        <p>Preencha seus dados para criar a conta.</p>
+      </header>
+      <div class="card__body">
+        <form class="grid" action="#" method="post" novalidate>
+          
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="clinica">Clínica</label>
+            <select id="clinica" name="clinica" required>
+              <option value="">Carregando clínicas...</option>
+            </select>
+            <small class="help">Selecione a clínica onde deseja se cadastrar.</small>
+          </div>
+          
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" type="text" placeholder="Ex.: Maria Souza" autocomplete="name" required />
+            <small class="help">Informe seu nome e sobrenome.</small>
+          </div>
+
+          <div class="field">
+            <label for="nascimento">Data de nascimento</label>
+            <input id="nascimento" name="nascimento" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" type="text" inputmode="numeric" pattern="\d{11}" placeholder="Apenas números (11 dígitos)" required />
+            <small class="help">Ex.: 12345678901 (somente números).</small>
+          </div>
+
+          <div class="field">
+            <label for="senha">Senha</label>
+            <input id="senha" name="senha" type="password" minlength="6" autocomplete="new-password" required />
+          </div>
+
+          <div class="actions" style="grid-column: 1 / -1;">
+            <button class="button" type="submit">Criar conta</button>
+            <a class="button secondary" href="consultas.html">Ir para Gestão de consultas</a>
+          </div>
+
+          <div id="erro-msg"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/cadastro.js"></script>
+</body>
+</html>

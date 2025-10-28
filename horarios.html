@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gestão de horários de atendimento</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/reset.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html" >Cadastro</a>
+      <a href="consultas.html" >Gestão de consultas</a>
+      <a href="horarios.html" aria-current="page">Gestão de horários</a>
+      <a href="solicitacao.html" >Solicitação de consulta</a>
+      <a href="admin.html" >Administração de usuários</a>
+    </nav>
+    
+
+<section class="card">
+  <header class="card__header">
+    <h1>Gestão de horários de atendimento</h1>
+    <p>Configuração de disponibilidade dentro do expediente (07:00–17:00).</p>
+  </header>
+  <div class="card__body">
+    <div class="note" style="margin-bottom:1rem;">
+      Um profissional sem horários não pode marcar consultas. O horário predefinido de cada consulta é de 1 hora.
+    </div>
+
+    <form class="grid" action="#" method="post" novalidate>
+      <div class="field">
+        <label for="turno-matutino">Atender no turno matutino?</label>
+        <select id="turno-matutino" name="turno_matutino" required>
+          <option value="" selected disabled>Selecione...</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="inicio-matutino">Início (matutino)</label>
+        <input id="inicio-matutino" name="inicio_matutino" type="time" min="07:00" max="12:00" step="3600" />
+        <small class="help">Passos de 1 hora.</small>
+      </div>
+
+      <div class="field">
+        <label for="fim-matutino">Fim (matutino)</label>
+        <input id="fim-matutino" name="fim_matutino" type="time" min="08:00" max="12:00" step="3600" />
+      </div>
+
+      <div class="field">
+        <label for="turno-vespertino">Atender no turno vespertino?</label>
+        <select id="turno-vespertino" name="turno_vespertino" required>
+          <option value="" selected disabled>Selecione...</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="inicio-vespertino">Início (vespertino)</label>
+        <input id="inicio-vespertino" name="inicio_vespertino" type="time" min="13:00" max="17:00" step="3600" />
+      </div>
+
+      <div class="field">
+        <label for="fim-vespertino">Fim (vespertino)</label>
+        <input id="fim-vespertino" name="fim_vespertino" type="time" min="13:00" max="17:00" step="3600" />
+      </div>
+
+      <div class="field" style="grid-column:1/-1;">
+        <small class="help">A disponibilidade deve respeitar o expediente da clínica (07:00–17:00).</small>
+      </div>
+
+      <div class="actions" style="grid-column:1/-1;">
+        <button class="button" type="submit">Salvar disponibilidade</button>
+      </div>
+    </form>
+  </div>
+</section>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Solicitação de consulta (Paciente)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/reset.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html" >Cadastro</a>
+      <a href="consultas.html" >Gestão de consultas</a>
+      <a href="horarios.html" >Gestão de horários</a>
+      <a href="solicitacao.html" aria-current="page">Solicitação de consulta</a>
+      <a href="admin.html" >Administração de usuários</a>
+    </nav>
+    
+
+<section class="card">
+  <header class="card__header">
+    <h1>Solicitar consulta</h1>
+    <p>Escolha o tipo, profissional e horário disponível.</p>
+  </header>
+  <div class="card__body">
+    <form class="grid" action="#" method="post" novalidate>
+      <div class="field">
+        <label for="tipo">Tipo de consulta</label>
+        <select id="tipo" name="tipo" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="telemedicina">Telemedicina</option>
+          <option value="presencial">Presencial</option>
+          <option value="domiciliar">Domiciliar</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="profissional">Profissional</label>
+        <select id="profissional" name="profissional" required>
+          <option value="" disabled selected>Selecione...</option>
+        </select>
+        <small class="help">O paciente tem acesso à lista de profissionais à sua escolha.</small>
+      </div>
+
+      <div class="field">
+        <label for="data">Data desejada</label>
+        <input id="data" name="data" type="date" required />
+      </div>
+
+      <div class="field">
+        <label for="hora">Horário</label>
+        <input id="hora" name="hora" type="time" min="07:00" max="17:00" step="3600" required />
+        <small class="help">A seleção respeita a disponibilidade do profissional (blocos de 1h).</small>
+      </div>
+
+      <div class="actions" style="grid-column:1/-1;">
+        <button class="button" type="submit">Enviar solicitação</button>
+        <a class="button secondary" href="#">Cancelar solicitação</a>
+      </div>
+
+      <div class="field" style="grid-column:1/-1;">
+        
+      </div>
+    </form>
+  </div>
+</section>
+  </main>
+</body>
+</html>
+

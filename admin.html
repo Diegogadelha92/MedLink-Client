@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Administração de usuários</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/reset.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html">Login</a>
+      <a href="admin.html" aria-current="page">Administração de usuários</a>
+    </nav>
+    
+    <section class="card">
+      <header class="card__header">
+        <h1>Administração de usuários</h1>
+        <p>Apenas administradores podem gerenciar usuários e contas de profissionais.</p>
+      </header>
+      <div class="card__body">
+        <div class="note" style="margin-bottom:1rem;">
+          Somente usuários do tipo <strong>administrador</strong> podem administrar outros usuários.
+        </div>
+
+        <h2 class="badge">Usuários</h2>
+        <div class="table" style="margin-top:.5rem;">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              </tbody>
+          </table>
+        </div>
+
+        <div class="space"></div>
+        <h3>Adicionar profissional</h3>
+        <form class="grid" action="#" method="post" novalidate>
+          
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="clinica-prof">Clínica</label>
+            <select id="clinica-prof" name="clinica_prof" required>
+              <option value="">Carregando clínicas...</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="nome-prof">Nome completo</label>
+            <input id="nome-prof" name="nome_prof" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="email-prof">E-mail</label>
+            <input id="email-prof" name="email_prof" type="email" required />
+          </div>
+
+          <div class="field">
+            <label for="cpf-prof">CPF</label>
+            <input id="cpf-prof" name="cpf_prof" type="text" inputmode="numeric" pattern="\d{11}" placeholder="Apenas números (11 dígitos)" required />
+          </div>
+
+          <div class="field">
+            <label for="nascimento-prof">Data de nascimento</label>
+            <input id="nascimento-prof" name="nascimento_prof" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="senha-prof">Senha</label>
+            <input id="senha-prof" name="senha_prof" type="password" minlength="6" required />
+          </div>
+
+          <div class="field">
+            <label for="status-prof">Status</label>
+            <select id="status-prof" name="status_prof" required>
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="titulo-area">Título da área de atuação</label>
+            <input id="titulo-area" name="titulo_area" type="text" placeholder="Ex.: Nutricionista" required />
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="descricao-area">Descrição da área de atuação</label>
+            <textarea id="descricao-area" name="descricao_area" rows="3" placeholder="Ex.: Especialista em nutrição esportiva" required></textarea>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label>Áreas de atuação <span style="color: #c33;">*</span></label>
+            <small class="help">Adicione pelo menos uma área de atuação.</small>
+            <div id="areas-container"></div>
+            <button type="button" class="button secondary" onclick="adicionarArea()" style="margin-top: 0.5rem;">+ Adicionar área</button>
+          </div>
+
+          <div class="actions" style="grid-column:1/-1;">
+            <button class="button" type="submit">Adicionar profissional</button>
+          </div>
+
+          <div id="erro-msg" style="grid-column: 1 / -1;"></div>
+        </form>
+
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
