@@ -118,13 +118,13 @@ function redirecionarPorTipo(tipo) {
       window.location.href = 'admin.html';
       break;
     case 'PROFISSIONAL':
-      window.location.href = 'medico.html';
-      break;
-    case 'PACIENTE':
       window.location.href = 'consultas.html';
       break;
+    case 'PACIENTE':
+      window.location.href = 'solicitacao.html';
+      break;
     default:
-      window.location.href = 'dashboard.html';
+      window.location.href = 'index.html';
   }
 }
 

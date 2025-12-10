@@ -54,7 +54,6 @@
             <small class="help">Blocos de 1 hora (07:00 às 17:00).</small>
           </div>
 
-          <!-- Campos de endereço (apenas para consulta domiciliar) -->
           <div id="campos-endereco" style="display: none; grid-column: 1 / -1;">
             <h3 style="margin-bottom: 1rem;">Endereço da consulta domiciliar</h3>
             <div class="grid">
@@ -62,32 +61,23 @@
                 <label for="rua">Rua</label>
                 <input id="rua" name="rua" type="text" maxlength="80" />
               </div>
-
               <div class="field">
                 <label for="numero">Número</label>
                 <input id="numero" name="numero" type="text" maxlength="10" />
               </div>
-
               <div class="field">
                 <label for="bairro">Bairro</label>
                 <input id="bairro" name="bairro" type="text" maxlength="80" />
               </div>
-
               <div class="field">
                 <label for="cidade">Cidade</label>
                 <input id="cidade" name="cidade" type="text" maxlength="20" />
               </div>
-
               <div class="field">
                 <label for="estado">Estado</label>
                 <input id="estado" name="estado" type="text" maxlength="20" placeholder="Ex: SP" />
               </div>
             </div>
-          </div>
-
-          <div class="field" style="grid-column: 1 / -1;">
-            <label for="justificativa">Justificativa (opcional)</label>
-            <textarea id="justificativa" name="justificativa" rows="3" maxlength="300" placeholder="Descreva o motivo da consulta..."></textarea>
           </div>
 
           <div class="actions" style="grid-column:1/-1;">
@@ -99,7 +89,36 @@
         </form>
       </div>
     </section>
-  </main>
+
+    <div class="space"></div>
+
+    <section class="card">
+      <header class="card__header">
+        <h1>Minhas Consultas</h1>
+        <p>Acompanhe o status das suas solicitações.</p>
+      </header>
+      <div class="card__body">
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Profissional</th>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="lista-consultas">
+              <tr>
+                <td colspan="5" style="text-align: center;">Carregando histórico...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    </main>
   <script src="assets/js/solicitacao.js"></script>
 </body>
 </html>

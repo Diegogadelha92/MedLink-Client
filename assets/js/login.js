@@ -49,7 +49,7 @@ function redirecionarPorTipo(tipo) {
       window.location.href = 'solicitacao.html';
       break;
     default:
-      window.location.href = 'dashboard.html';
+      window.location.href = 'cadastro.html';
   }
 }
 

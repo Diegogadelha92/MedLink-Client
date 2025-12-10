@@ -51,7 +51,8 @@ async function handleSubmitCadastro(e) {
       senha: senha,
       cpf: cpf,
       dataNascimento: nascimento,
-      areasAtuacao: areasAdicionais
+      areasAtuacao: areasAdicionais,
+      turnosAtendimento: ['MATUTINO', 'VESPERTINO']
     };
 
     const response = await fetch('http://localhost:8080/administradores/profissional', {
@@ -69,6 +70,7 @@ async function handleSubmitCadastro(e) {
       document.getElementById('areas-container').innerHTML = '';
       contadorAreas = 0;
       adicionarArea();
+      carregarClinicas();
 
       const clinicaSelecionada = document.getElementById('clinica-prof').value;
       if (clinicaSelecionada) {
@@ -94,6 +96,7 @@ async function handleSubmitEdicao(e) {
   const cpf = document.getElementById('edit-cpf').value;
   const nascimento = document.getElementById('edit-nascimento').value;
   const senha = document.getElementById('edit-senha').value;
+  const inativo = document.getElementById('edit-status').value === 'inativo' ? true : false;
 
   if (!clinica || !nome || !email || !cpf || !nascimento) {
     mostrarErro('Por favor, preencha todos os campos obrigatórios.', 'edit-erro-msg');
@@ -122,13 +125,15 @@ async function handleSubmitEdicao(e) {
 
   try {
     const dadosProfissional = {
+      id: id,
       clinica: clinica,
       nome: nome,
       email: email,
       cpf: cpf,
       dataNascimento: nascimento,
       areasAtuacao: areasAdicionais,
-      turnosAtendimento: turnosAtendimento
+      turnosAtendimento: turnosAtendimento,
+      inativo: inativo
     };
 
     if (senha) {
@@ -147,6 +152,7 @@ async function handleSubmitEdicao(e) {
     if (response.ok) {
       mostrarSucesso('Profissional atualizado com sucesso!');
       fecharModal();
+      carregarClinicas();
 
       const clinicaSelecionada = document.getElementById('clinica-prof').value;
       if (clinicaSelecionada) {
@@ -184,6 +190,7 @@ async function carregarClinicas() {
         const option2 = document.createElement('option');
         option2.value = clinica;
         option2.textContent = clinica;
+        option2.selected = true;
         selectEditClinica.appendChild(option2);
       });
 
@@ -292,13 +299,12 @@ async function abrirModalEditar(profissional) {
 
 function preencherFormularioEdicao(prof) {
   document.getElementById('edit-id').value = prof.id || '';
-  document.getElementById('edit-clinica').value = prof.clinica || '';
   document.getElementById('edit-nome').value = prof.nome || '';
   document.getElementById('edit-email').value = prof.email || '';
   document.getElementById('edit-cpf').value = prof.cpf || '';
   document.getElementById('edit-nascimento').value = prof.dataNascimento || '';
   document.getElementById('edit-senha').value = prof.senha || '';
-  document.getElementById('edit-status').value = prof.status || 'ativo';
+  document.getElementById('edit-status').value = prof.inativo ? 'inativo' : 'ativo';
 
   document.getElementById('turno-matutino').checked = false;
   document.getElementById('turno-vespertino').checked = false;
